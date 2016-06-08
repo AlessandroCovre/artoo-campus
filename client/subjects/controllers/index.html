@@ -12,21 +12,62 @@
   <body ng-app="artoo">
     <appbar></appbar>
     
-    <!-- load the item controller -->
-    
     <!-- bind the item controller to an element -->
+    <div ng-controller="ItemsCtrl" ng-hide="!item"><!--Questo div è il mo scope-->
+    <!-- create another controller for the player for managing data such as personal and game info -->
+      <div ng-controller='PlayerCtrl'>
+        <div>Player hp: {{player.hp}}</div>
+        <div>Player Lever: {{player.level}}</div>
+        <div>Player Exp: {{player.exp}}</div>
+        <div>Is player dead?{{isDead()}}</div>
+        <button ng-click="takeDamage(30)">Take hit!</button>
+        <button ng-click="gainExp(12)">Gain Up</button>
+        <button ng-click="levelUp()">Level Up</button>
+      </div>
+      <hr>
+      
+    
     
     <!-- interpolate the data to the view -->
+      <div>
+        Name: <span ng-bind="item.name"></span>
+      </div>
+      <div ng-show="visibleDescription">
+        Description: <span ng-bind="item.description"></span>
+      </div>
+        <button ng-click="toggleDescription()">
+          <span ng-show="visibleDescription">Hide</span>
+          <span ng-hide="visibleDescription">Show</span>
+           Description
+        </button>
+      <div>
+        Slot: <span ng-bind="item.slots"></span>
+      </div>
+      <div>
+        Fits in Bag? {{checkIfFits(item, 5)}}
+      </div>
+      <div>
+        <image ng-hide="!item"ng-src="{{item.image}}" alt=""></image>
+      </div>
+      
+      <button ng-click="dispose()">Dispose</button>
+    </div><!--./ng-controller-->
+    
     
     <!-- understanding the scope -->
     
-    <!-- add handles for behaviours -->
     
-    <!-- create another controller for the player for managing data such as personal and game info -->
+    <!-- add handles(maniglia) for behaviours -->
+    
+    
+    
     
     <script src="node_modules/angular/angular.min.js"></script>
     <script src="ui/appbar/appbar.js"></script>
 
     <script src="subjects/controllers/app.js"></script>
+    <!-- load the item controller -->
+    <script src="subjects/controllers/item.controller.js"></script>
+    <script src="subjects/controllers/player.controller.js"></script>
   </body>
 </html>

@@ -1,0 +1,13 @@
+.item {
+    border: 2px dashed #335;
+    margin: 10px 0;
+    padding:10px 10px;
+}
+
+.item.available {
+    border-color: green;
+}
+
+.item.unavailable {
+    border-color: red;
+}

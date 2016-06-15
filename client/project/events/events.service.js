@@ -31,7 +31,6 @@ angular.module('appenda').service('EventsSrv', function () {
   this.create = function (newEvent) {
      newEvent.id = maxId++;
      events.push(angular.copy(newEvent));
-     
   };
   
   // Delete method to remove an event from the list
@@ -42,6 +41,8 @@ angular.module('appenda').service('EventsSrv', function () {
       };
     });
   };
+  
+  /**/
   
   // this.update = function (newEvent) {
   //   events.forEach(function (singleEvent) {

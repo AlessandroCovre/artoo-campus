@@ -1,8 +1,3 @@
-angular.module('appenda').controller('ContactsCtrl', function (ContactsSrv) {
+angular.module('appenda').controller('ContactsCtrl', function ($scope, ContactsSrv) {
   this.ContactsSrv = ContactsSrv;
-  
-  this.add = function (newContact) {
-    ContactsSrv.create(newContact);
-    this.newContact = {};
-  };
 });
